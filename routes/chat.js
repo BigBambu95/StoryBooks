@@ -1,9 +1,9 @@
 const app = require('express')();
 const router = require('express').Router();
-const server = require('http').Server(app);
-const io = require('socket.io')(server);
+// const server = require('http').Server(app);
+// const io = require('socket.io')(server);
 
-server.listen(80);
+// server.listen(80);
 
 // Chat Index
 router.get('/', (req, res) => {
@@ -11,14 +11,14 @@ router.get('/', (req, res) => {
 });
 
   // Connection IO
-  io.on('connection', (socket) => {
-    socket.broadcast.emit('hi');
-    socket.on('chat message', (msg) => {
-      io.emit('chat message', msg);
-    });
+  // io.on('connection', (socket) => {
+  //   socket.broadcast.emit('hi');
+  //   socket.on('chat message', (msg) => {
+  //     io.emit('chat message', msg);
+  //   });
 
-  });
+  // });
 
-  io.emit('some event', {for: 'everyone'});
+  // io.emit('some event', {for: 'everyone'});
 
 module.exports = router;
