@@ -2,7 +2,7 @@
   <nav class="grey darken-3">
     <div class="container">
       <div class="nav-wrapper">
-        <a href="/stories" class="brand-logo center">
+        <a href="/" class="brand-logo center">
           StoryBooks
         </a>
         <a href="#" data-target="main-menu" class="button-collapse">
@@ -12,19 +12,19 @@
         <ul class="right hide-on-med-and-down">
           {{#if user}}
           <li>
-            <a href="/dashboard">Welcome {{user.firstName}}</a>
+            <a href="/dashboard">Привет {{user.firstName}}</a>
           </li>
           <li>
             <a href="/auth/logout">
               <i class="fas fa-sign-out-alt left"></i>
-              Logout
+              Выйти
             </a>
           </li>
           {{else}}
           <li>
             <a href="/stories">
               <i class="fa fa-book left"></i>
-              Public Stories
+              Публичные истории
             </a>
           </li>
           {{/if}}
@@ -35,19 +35,19 @@
 
           {{else}}
           <li>
-            <a href="/auth/google" class="btn red darken-1">
+            <a href="/auth/google" class="">
               <i class="fab fa-google"></i>
-              Login With Google
+              Войти
             </a>
           </li>
           {{/if}}
-          <li><a href="/stories"><i class="fa fa-book"></i> Public Stories</a></li>
+          <li><a href="/stories"><i class="fa fa-book"></i> Публичные истории</a></li>
           {{#if user}}
           <li class="divider"></li>
-          <li><a href="/chat">Chat</a></li>
-          <li><a href="/dashboard"><i class="fa fa-cog"></i> Dashboard</a></li>
-          <li><a href="/stories/my"><i class="fa fa-user"></i> My stories</a></li>
-          <li><a href="/auth/logout"><i class="fa fa-sign-out-alt"></i> Logout</a></li>
+          <li><a href="/chat">Чат</a></li>
+          <li><a href="/dashboard"><i class="fa fa-cog"></i> Панель инструментов</a></li>
+          <li><a href="/stories/my"><i class="fa fa-user"></i> Мои истории</a></li>
+          <li><a href="/auth/logout"><i class="fa fa-sign-out-alt"></i> Выйти</a></li>
           {{/if}}
         </ul>
       </div>
