@@ -1,9 +1,9 @@
 const app = require('express')();
 const router = require('express').Router();
-// const server = require('http').Server(app);
-// const io = require('socket.io')(server);
+const server = require('https').Server(app);
+const io = require('socket.io')(server);
 
-// server.listen(80);
+server.listen(80);
 
 // Chat Index
 router.get('/', (req, res) => {

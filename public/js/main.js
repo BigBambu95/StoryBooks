@@ -7,7 +7,7 @@ document.addEventListener('DOMContentLoaded', () => {
     instance.open();
   });
 
-  const socket = io.connect('http://localhost');
+  const socket = io.connect('https://storybooks1995.herokuapp.com');
   $('#chat').submit(e => {
     e.preventDefault();
     socket.emit('chat message', $('#message').val());
