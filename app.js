@@ -8,8 +8,6 @@ const passport = require('passport');
 
 
 const app = express();
-const server = require('http').Server(app);
-const io = require('socket.io')(server);
 
 
 // Handlebars Middleware
