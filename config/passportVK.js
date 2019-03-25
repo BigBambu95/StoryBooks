@@ -1,4 +1,4 @@
-const VKStrategy = require('passport-vkontakte').Strategy;
+const VKStrategy = require('passport-instagram').Strategy;
 const mongoose = require('mongoose');
 const keys = require('./keys');
 
@@ -7,18 +7,19 @@ const User = mongoose.model('users');
 
 module.exports = function(passport) {
   passport.use(new VKStrategy({
-      clientID: keys.VKClientID,
-      clientSecret: keys.VKSecret,
-      callbackURL: '/auth/vkontakte/callback'
+      clientID: keys.instagramClientID,
+      clientSecret: keys.instagramSecret,
+      callbackURL: '/auth/instagram/callback'
     }, 
     (accessToken, refreshToken, params, profile, done) => {
-
-      const image = profile.photos[0].value;
-
+      let image = profile._json.data.profile_picture;
+      let firstName = profile.displayName.split(' ')[0];
+      let lastName = profile.displayName.split(' ')[1];
+    
       const newUser = {
         authID: profile.id,
-        firstName: profile.name.givenName,
-        lastName: profile.name.familyName,
+        firstName: firstName,
+        lastName: lastName,
         image: image
       }
   

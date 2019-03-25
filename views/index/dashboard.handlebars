@@ -1,34 +1,30 @@
-<h1>Привет {{user.firstName}}</h1>
-<h4>Твои истории</h4>
+
+<h1>Твои истории</h1>
 {{#if stories}}
-<div style="overflow: auto;">
-    <table class="striped">
-        <thead>
-            <tr>
-                <th>Заголовок</th>
-                <th>Дата создания</th>
-                <th>Статус</th>
-                <th></th>
-            </tr>
-        </thead>
-        <tbody>
+
+
+    <div class="row">
+       <div class="col m3">Заголовок</div>
+       <div class="col m3">Дата создания</div>
+       <div class="col m3">Статус</div>
+</div>
+        <div class="row">
             {{#each stories}}
-                <tr>
-                    <td><a href="/stories/show/{{id}}">{{title}}</a></td>
-                    <td>{{formatDate data 'MMMM do YYYY'}}</td>
-                    <td><span class="dash-status">{{status}}</span></td>
-                    <td>
+            <div class="row">
+                    <div class="col m3"><a href="/stories/show/{{id}}">{{title}}</a></div>
+                    <div class="col m3">{{formatDate data 'MMMM do YYYY'}}</div>
+                    <div class="col m2"><span class="dash-status">{{status}}</span></div>
+                    <div>
                         <a class="btn left-align" href="/stories/edit/{{id}}"><i class="fas fa-pencil-alt left"></i> Редактировать</a>
                         <form action="/stories/{{id}}?_method=DELETE" method="POST" id="delete-form">
                             <input type="hidden" name="_method" value="DELETE">
                             <button class="btn red"><i class="fas fa-trash left"></i> Удалить</button>
                         </form>
-                    </td>
-                </tr>
+                    </div>
+            </div>
             {{/each}}
-        </tbody>
-    </table>
-    </div>
+        </div>
+
 {{else}}
-    <p>You have not created any stories yet</p>
+    <p>Вы еще не опубликовали ни одной истории!</p>
 {{/if}}

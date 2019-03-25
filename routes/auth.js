@@ -21,6 +21,16 @@ router.get('/vkontakte/callback',
     res.redirect(303, '/dashboard');
   });
 
+ // Instagram authentication
+router.get('/instagram', passport.authenticate('instagram'));
+
+router.get('/instagram/callback', 
+  passport.authenticate('instagram', { failureRedirect: '/' }),
+  (req, res) => {
+    res.redirect(303, '/dashboard');
+  });
+ 
+
 router.get('/verify', (req, res) => {
   if(req.user) {
     console.log(req.user);
