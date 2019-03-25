@@ -17,7 +17,7 @@ module.exports = function(passport) {
       const image = profile.photos[0].value;
 
       const newUser = {
-        googleID: profile.id,
+        authID: profile.id,
         firstName: profile.name.givenName,
         lastName: profile.name.familyName,
         email: profile.emails[0].value,
@@ -26,7 +26,7 @@ module.exports = function(passport) {
 
       // Check for existing user
       User.findOne({
-        googleID: profile.id
+        authID: profile.id
       })
         .then(user => {
           if(user) {

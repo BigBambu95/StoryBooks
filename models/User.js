@@ -3,13 +3,12 @@ const Schema = mongoose.Schema;
 
 // Create schema
 const userSchema = new Schema({
-  googleID: {
+  authID: {
     type: String,
     required: true
   },
   email: {
-    type: String,
-    required: true
+    type: String
   },
   firstName: {
     type: String,

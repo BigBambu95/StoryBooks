@@ -11,7 +11,8 @@
         {{!-- RIGHT NAV --}}
         <ul class="right hide-on-med-and-down">
           {{#if user}}
-          <li>
+          <li class="main-header__profile">
+            <img class="circle responsive-img" src="{{user.image}}">
             <a href="/dashboard">Привет {{user.firstName}}</a>
           </li>
           <li>
@@ -37,14 +38,19 @@
           <li>
             <a href="/auth/google" class="">
               <i class="fab fa-google"></i>
-              Войти
+              Google
+            </a>
+          </li>
+           <li>
+            <a href="/auth/vkontakte" class="">
+              <i class="fab fa-vk left"></i>
+              Вконтакте
             </a>
           </li>
           {{/if}}
           <li><a href="/stories"><i class="fa fa-book"></i> Публичные истории</a></li>
           {{#if user}}
           <li class="divider"></li>
-          <li><a href="/chat">Чат</a></li>
           <li><a href="/dashboard"><i class="fa fa-cog"></i> Панель инструментов</a></li>
           <li><a href="/stories/my"><i class="fa fa-user"></i> Мои истории</a></li>
           <li><a href="/auth/logout"><i class="fa fa-sign-out-alt"></i> Выйти</a></li>

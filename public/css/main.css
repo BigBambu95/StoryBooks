@@ -38,3 +38,8 @@ img.story-detail__image {
 .story-list .story {
   margin-bottom: 2em;
 }
+
+.main-header__profile {
+  display: flex;
+  align-items: center;
+}

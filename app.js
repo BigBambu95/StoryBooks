@@ -23,7 +23,8 @@ const {
   truncate,
   stripTags,
   formatDate,
-  select
+  select,
+  editIcon
 } = require('./helpers/hbs');
 
 // Handlebars Middleware
@@ -32,7 +33,8 @@ app.engine('handlebars', exphbs({
     truncate: truncate,
     stripTags: stripTags,
     formatDate: formatDate,
-    select: select
+    select: select,
+    editIcon: editIcon
   },
   defaultLayout: 'main'
 }));
@@ -43,13 +45,14 @@ require('./models/User');
 require('./models/Story');
 
 // Passport Config
-require('./config/passport')(passport);
+require('./config/passportGoogle')(passport);
+require('./config/passportVK')(passport);
 
 // Load Routes
 const index = require('./routes/index');
 const auth = require('./routes/auth');
 const stories = require('./routes/stories');
-const chat = require('./routes/chat');
+// const chat = require('./routes/chat');
 
 // Load Keys
 const keys = require('./config/keys');
@@ -89,7 +92,7 @@ app.use((req, res, next) => {
 app.use('/', index);
 app.use('/auth', auth);
 app.use('/stories', stories);
-app.use('/chat', chat);
+// app.use('/chat', chat);
 
 // 404 Page
 app.use((req, res, next) => {

@@ -4,9 +4,9 @@
     <table class="striped">
         <thead>
             <tr>
-                <th>Title</th>
-                <th>Date</th>
-                <th>Status</th>
+                <th>Заголовок</th>
+                <th>Дата создания</th>
+                <th>Статус</th>
                 <th></th>
             </tr>
         </thead>
@@ -17,10 +17,10 @@
                     <td>{{formatDate data 'MMMM do YYYY'}}</td>
                     <td><span class="dash-status">{{status}}</span></td>
                     <td>
-                        <a class="btn left-align" href="/stories/edit/{{id}}"><i class="fas fa-pencil-alt left"></i> Edit</a>
+                        <a class="btn left-align" href="/stories/edit/{{id}}"><i class="fas fa-pencil-alt left"></i> Редактировать</a>
                         <form action="/stories/{{id}}?_method=DELETE" method="POST" id="delete-form">
                             <input type="hidden" name="_method" value="DELETE">
-                            <button class="btn red"><i class="fas fa-trash left"></i> Delete</button>
+                            <button class="btn red"><i class="fas fa-trash left"></i> Удалить</button>
                         </form>
                     </td>
                 </tr>
