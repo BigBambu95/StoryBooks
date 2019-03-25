@@ -43,3 +43,8 @@ img.story-detail__image {
   display: flex;
   align-items: center;
 }
+
+.main-header__profile img {
+  width: 3em;
+  height: 3em;
+}
