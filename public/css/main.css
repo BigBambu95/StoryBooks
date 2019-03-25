@@ -18,3 +18,23 @@ h1 {
 footer {
   margin-top: 2em;
 }
+
+.story-text {
+  height: 50px;
+}
+
+.dash-status {
+  text-transform: capitalize;
+}
+
+#delete-form {
+  display: inline;
+}
+
+img.story-detail__image {
+  max-width: 150px;
+}
+
+.story-list .story {
+  margin-bottom: 2em;
+}

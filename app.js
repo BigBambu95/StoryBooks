@@ -2,6 +2,7 @@ const express = require('express');
 const exphbs = require('express-handlebars');
 const path = require('path');
 const bodyParser = require('body-parser');
+const methodOverride = require('method-override');
 const mongoose = require('mongoose');
 const cookieParser = require('cookie-parser');
 const session = require('express-session');
@@ -10,11 +11,29 @@ const passport = require('passport');
 
 const app = express();
 
+// Body Parser Middleware
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
+// Method Override Middleware
+app.use(methodOverride('_method'));
+
+// Handlebars Helpers
+const {
+  truncate,
+  stripTags,
+  formatDate,
+  select
+} = require('./helpers/hbs');
+
 // Handlebars Middleware
 app.engine('handlebars', exphbs({
+  helpers: {
+    truncate: truncate,
+    stripTags: stripTags,
+    formatDate: formatDate,
+    select: select
+  },
   defaultLayout: 'main'
 }));
 app.set('view engine', 'handlebars');
